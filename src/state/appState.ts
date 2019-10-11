@@ -16,6 +16,7 @@ export interface IBM{
     products:IProductData[];
     sumOfAmount: number,
     sumOfTotalPrice: number,
+    isloggedIn : boolean,
 }
 
 
@@ -35,5 +36,6 @@ export const initial:IState = {
         products:[],
         sumOfAmount: 0,
         sumOfTotalPrice: 0,
+        isloggedIn : false,
 	}
 };

@@ -37,3 +37,6 @@ For the next iteration we want to add a new component. This component should sum
 Add in our components folder the new component and name it SimpleSum. Hint: Don't create a new action. For this iteration it is enough
 to extend the existing actions.
 
+## Iteration 3
+
+Fot the third iteration we want to implement a fake log in and log out function. Add in our components folder the new component and name it SimpleLogin.

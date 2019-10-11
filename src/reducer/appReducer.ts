@@ -50,6 +50,14 @@ export const reducer = (state = initial, action: IAction) => {
             newState.BM.sumOfTotalPrice = newState.BM.sumOfTotalPrice - deleteAction.product.product_totalPrice;
             return  newState;
 
+        case ActionType.login: 
+            newState.BM.isloggedIn = true;
+            return newState;
+
+        case ActionType.logout: 
+            newState.BM.isloggedIn = false;
+            return newState;
+
         default:
             window.CS.log("1. Error!!!!! no reducer defined");
             return newState;
