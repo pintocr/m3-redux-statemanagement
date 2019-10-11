@@ -48,8 +48,8 @@ export default class SimpleProduct extends React.PureComponent<IProps, IState> {
                 <tr>
                     <td><input type="text" name="name" value={this.props.product.product_name} onChange={this.handleNameChange} /></td>
                     <td><input type="number" name="value" value={this.props.product.product_value} onChange={this.handleValueChange} /> €</td>
-                    <td><input type="number" name="amount" value={this.props.product.product_amount} onChange={this.handleAmountChange} /></td>
-                    <td>{this.props.product.product_totalPrice} €</td>
+                    <td className="amount"><input type="number" name="amount" value={this.props.product.product_amount} onChange={this.handleAmountChange} /></td>
+                    <td className="totalPrice">{this.props.product.product_totalPrice} €</td>
                     <td>
                         <button onClick={this.handleSave} id={this.props.product._id}>save</button>
                         <button onClick={this.handleRerenderTest} >increase State Counter</button>
@@ -61,8 +61,8 @@ export default class SimpleProduct extends React.PureComponent<IProps, IState> {
                 <tr>
                     <td>{this.props.product.product_name}</td>
                     <td>{this.props.product.product_value} €</td>
-                    <td>{this.props.product.product_amount}</td>
-                    <td>{this.props.product.product_totalPrice} €</td>
+                    <td className="amount">{this.props.product.product_amount}</td>
+                    <td className="totalPrice">{this.props.product.product_totalPrice} €</td>
                     <td>
                         <button onClick={this.handleSwitchToEditMode}>edit</button>
                         <button onClick={this.handleDelete} id={this.props.product._id}>sell or dispose</button>
@@ -86,7 +86,8 @@ export default class SimpleProduct extends React.PureComponent<IProps, IState> {
     }
     handleValueChange(event: any) {
         const newProduct = this.props.product;
-        newProduct.product_value = event.target.value;
+        let target = event.target as HTMLInputElement;
+        newProduct.product_value = parseInt(target.value);
         newProduct.product_totalPrice = newProduct.product_amount * newProduct.product_value;
         const action: IProductAction = {
             type: ActionType.update_product,
@@ -97,7 +98,8 @@ export default class SimpleProduct extends React.PureComponent<IProps, IState> {
 
     handleAmountChange(event: any) {
         const newProduct = this.props.product;
-        newProduct.product_amount = event.target.value;
+        let target = event.target as HTMLInputElement;
+        newProduct.product_amount = parseInt(target.value);
         newProduct.product_totalPrice = newProduct.product_amount * newProduct.product_value;
         const action: IProductAction = {
             type: ActionType.update_product,

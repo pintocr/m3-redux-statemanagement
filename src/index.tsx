@@ -18,7 +18,7 @@ window.CS = new CS();
 window.CS.initializeStore();
 
 //now we can render this state to the DOM using React
-ReactDOM.render(<App stateCounter={window.CS.getUIState().counter} />, document.getElementById('root'));
+ReactDOM.render(<App stateCounter={window.CS.getUIState().counter} sumOfAmount={window.CS.getBMState().sumOfAmount} sumOfTotalPrice={window.CS.getBMState().sumOfTotalPrice} />, document.getElementById('root'));
 
 
 //whenever there is a new state, we render the whole virtual DOM again
@@ -26,7 +26,7 @@ ReactDOM.render(<App stateCounter={window.CS.getUIState().counter} />, document.
 //the current virtual DOM will be rendered to the browser DOM
 window.CS.getStore().subscribe(() => {
   window.CS.log("3. before render ---------------------------------------------");
-  ReactDOM.render(<App stateCounter={window.CS.getUIState().counter} />, document.getElementById('root'));
+  ReactDOM.render(<App stateCounter={window.CS.getUIState().counter} sumOfAmount={window.CS.getBMState().sumOfAmount} sumOfTotalPrice={window.CS.getBMState().sumOfTotalPrice}/>, document.getElementById('root'));
   window.CS.log("3. after render ---------------------------------------------");
 });
 

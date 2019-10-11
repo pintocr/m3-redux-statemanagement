@@ -30,3 +30,10 @@ You don't need to comprehend every detail of this framework. For this Lab we wan
 After you got a overview of the code, change all variable and object names from asset to product. This change doesn't only make sense
 because we want to build a shopping card. It will force you to look more precise to the code before starting to extending it.
 After you done add two new columns. One for the amount of Products and another for the total price of the product.
+
+## Iteration 2
+
+For the next iteration we want to add a new component. This component should sum up the amount and total price of all our products.
+Add in our components folder the new component and name it SimpleSum. Hint: Don't create a new action. For this iteration it is enough
+to extend the existing actions.
+

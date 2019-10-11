@@ -13,7 +13,9 @@ interface IProductData {
   }
 
 export interface IBM{
-    products:IProductData[]
+    products:IProductData[];
+    sumOfAmount: number,
+    sumOfTotalPrice: number,
 }
 
 
@@ -30,6 +32,8 @@ export const initial:IState = {
 		waitingForResponse: false,
 	},
 	BM: {
-        products:[]
+        products:[],
+        sumOfAmount: 0,
+        sumOfTotalPrice: 0,
 	}
 };

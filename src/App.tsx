@@ -1,5 +1,6 @@
 import React from 'react';
-import SimpleProduct from './components/SimpleProduct'
+import SimpleProduct from './components/SimpleProduct';
+import SimpleSum from './components/SimpleSum';
 import mongoose from 'mongoose';
 
 import { IAction, ActionType } from './framework/IAction';
@@ -7,7 +8,9 @@ import { IWindow } from './framework/IWindow'
 declare let window: IWindow;
 
 interface IProps {
-  stateCounter: number
+  stateCounter: number;
+  sumOfAmount: number;
+  sumOfTotalPrice: number;
 }
 export interface IProductData {
   _id: string;
@@ -46,6 +49,7 @@ export default class App extends React.PureComponent<IProps, IState> {
           <tbody>
             <tr><th>description</th><th>value</th><th>amount</th><th>total price</th><th>action</th></tr>
             {window.CS.getBMState().products.map(product => <SimpleProduct key={product._id} product={product} edit={false} />)}
+            <SimpleSum sumOfAmount= {this.props.sumOfAmount} sumOfTotalPrice= {this.props.sumOfTotalPrice}/>
           </tbody>
         </table>
       </div>
@@ -56,7 +60,7 @@ export default class App extends React.PureComponent<IProps, IState> {
     console.log("handleCreateProduct invoked");
     const newProduct: IProductData = {
       _id: mongoose.Types.ObjectId().toString(),
-      product_name: "",
+      product_name: "product",
       product_value: 0,
       product_amount: 1,
       product_totalPrice: 0
@@ -67,4 +71,5 @@ export default class App extends React.PureComponent<IProps, IState> {
     }
     window.CS.clientAction(action);
   }
+
 }
