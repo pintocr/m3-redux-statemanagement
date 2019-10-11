@@ -4,14 +4,16 @@ export interface IUI{
     waitingForResponse:boolean;
 }
 
-interface IAssetData {
+interface IProductData {
     _id: string;
-    asset_name: string;
-    asset_value: number;
+    product_name: string;
+    product_value: number;
+    product_amount: number;
+    product_totalPrice: number;
   }
 
 export interface IBM{
-    assets:IAssetData[]
+    products:IProductData[]
 }
 
 
@@ -28,6 +30,6 @@ export const initial:IState = {
 		waitingForResponse: false,
 	},
 	BM: {
-        assets:[]
+        products:[]
 	}
 };
