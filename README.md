@@ -36,7 +36,7 @@ You will see, that you will need to change every important file and typescript w
 After you finished renaming everything add two new columns. One for the amount of Products and another for the total price of the product. 
 
 
-![example of the new columns](https://ibb.co/JvQJR1z "new columns")
+![example of the new columns](https://imgur.com/vX0AfCp "new columns")
 
 
 ## Iteration 2
@@ -52,7 +52,7 @@ to use a state lift up. You should be able to get all states in our appState fil
 You will also need to add new States to the appState file.
 
 
-![example of the new columns](https://ibb.co/LCk16kQ "new columns")
+![example of the new component](https://imgur.com/vX0AfCp "new component")
 
 
 ## Iteration 3
@@ -65,5 +65,5 @@ you can simply add a User object with the properties "username" and "password" i
 we don't use any Database. 
 
 
-![example of the new columns](https://ibb.co/NF1Pfjb "new columns")
+![example of the new log in](https://imgur.com/ypapQmx "new log in")
 
