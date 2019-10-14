@@ -1,3 +1,5 @@
+import { string } from "prop-types";
+
 export interface IUI{
     counter: number;
     loggedIn: boolean;
@@ -12,12 +14,18 @@ interface IProductData {
     product_totalPrice: number;
   }
 
+  interface IUser {
+      username: string;
+      password: string;
+  }
+
+
 export interface IBM{
     products:IProductData[];
     sumOfAmount: number,
     sumOfTotalPrice: number,
     isloggedIn : boolean,
-    user: object
+    user: IUser
 }
 
 

@@ -55,7 +55,7 @@ export default class SimpleLogin extends React.PureComponent<IProps, IState> {
 
 
     handleLogin (){
-        if(this.state.typedUsername === "admin" && this.state.typedPassword === "admin"){
+        if(this.state.typedUsername === window.CS.getBMState().user.username && this.state.typedPassword === window.CS.getBMState().user.password){
             const action: IAction = {
                 type: ActionType.login
               }
