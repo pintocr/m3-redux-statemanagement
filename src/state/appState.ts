@@ -17,6 +17,7 @@ export interface IBM{
     sumOfAmount: number,
     sumOfTotalPrice: number,
     isloggedIn : boolean,
+    user: object
 }
 
 
@@ -30,12 +31,16 @@ export const initial:IState = {
 	UI: {
 		counter: 0,
 		loggedIn: false,
-		waitingForResponse: false,
+        waitingForResponse: false
 	},
 	BM: {
         products:[],
         sumOfAmount: 0,
         sumOfTotalPrice: 0,
         isloggedIn : false,
+        user: {
+            username: "admin",
+            password: "admin"
+        }
 	}
 };

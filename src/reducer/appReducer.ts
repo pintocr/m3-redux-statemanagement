@@ -2,6 +2,7 @@ import { initial, IState } from '../state/appState'
 import { IWindow } from '../framework/IWindow'
 import { IAction, ActionType } from '../framework/IAction'
 import { IProductData, IProductAction } from '../App';
+
 //import { parse } from 'querystring';
 
 declare let window: IWindow;
@@ -51,11 +52,11 @@ export const reducer = (state = initial, action: IAction) => {
             return  newState;
 
         case ActionType.login: 
-            newState.BM.isloggedIn = true;
+            newState.UI.loggedIn = true;
             return newState;
 
         case ActionType.logout: 
-            newState.BM.isloggedIn = false;
+            newState.UI.loggedIn = false;
             return newState;
 
         default:

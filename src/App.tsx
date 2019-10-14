@@ -11,9 +11,6 @@ declare let window: IWindow;
 
 interface IProps {
   stateCounter: number;
-  sumOfAmount: number;
-  sumOfTotalPrice: number;
-  isLoggedIn : boolean;
 }
 export interface IProductData {
   _id: string;
@@ -37,8 +34,6 @@ export default class App extends React.PureComponent<IProps, IState> {
     super(props);
 
     this.handleCreateProduct = this.handleCreateProduct.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
-    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
   render() {
@@ -47,15 +42,15 @@ export default class App extends React.PureComponent<IProps, IState> {
       <div>
         <p> {window.CS.getUIState().counter}</p>
         <h1>simple product management application</h1>
-        <SimpleLogin handleLogin= {this.handleLogin} isLoggedIn={this.props.isLoggedIn} handleLogOut= {this.handleLogOut}/>
+        <SimpleLogin isLoggedIn = {window.CS.getUIState().loggedIn}/>
         <p>to create a new product click this button:&nbsp;
-          <button onClick={this.handleCreateProduct}>create product</button>
+          <button disabled={!window.CS.getUIState().loggedIn} onClick={this.handleCreateProduct}>create product</button>
         </p>
         <table>
           <tbody>
             <tr><th>description</th><th>value</th><th>amount</th><th>total price</th><th>action</th></tr>
             {window.CS.getBMState().products.map(product => <SimpleProduct key={product._id} product={product} edit={false} />)}
-            <SimpleSum sumOfAmount= {this.props.sumOfAmount} sumOfTotalPrice= {this.props.sumOfTotalPrice}/>
+            <SimpleSum sumOfAmount= {window.CS.getBMState().sumOfAmount} sumOfTotalPrice= {window.CS.getBMState().sumOfTotalPrice}/>
           </tbody>
         </table>
       </div>
@@ -74,22 +69,6 @@ export default class App extends React.PureComponent<IProps, IState> {
     const action: IProductAction = {
       type: ActionType.create_product,
       product: newProduct
-    }
-    window.CS.clientAction(action);
-  }
-
-  handleLogin (){
-    console.log("before: ", this.props.isLoggedIn);
-    const action: IAction = {
-      type: ActionType.login
-    }
-    window.CS.clientAction(action);
-    console.log("after: ", this.props.isLoggedIn);
-  }
-
-  handleLogOut (){
-    const action: IAction = {
-      type: ActionType.logout
     }
     window.CS.clientAction(action);
   }

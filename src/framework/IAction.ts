@@ -5,7 +5,7 @@ export enum ActionType {
     delete_product = "delete_product",
     login = "login",
     logout = "logout",
-    render_test = "render_test" 
+    render_test = "render_test"
 }
 export interface IAction {
     type: ActionType;

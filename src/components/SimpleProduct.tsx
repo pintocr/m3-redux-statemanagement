@@ -31,7 +31,7 @@ export default class SimpleProduct extends React.PureComponent<IProps, IState> {
         this.handleAmountChange = this.handleAmountChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.handleRerenderTest = this.handleRerenderTest.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);   
 
         this.state = {
             edit_mode: props.edit,
@@ -64,9 +64,9 @@ export default class SimpleProduct extends React.PureComponent<IProps, IState> {
                     <td className="amount">{this.props.product.product_amount}</td>
                     <td className="totalPrice">{this.props.product.product_totalPrice} €</td>
                     <td>
-                        <button onClick={this.handleSwitchToEditMode}>edit</button>
-                        <button onClick={this.handleDelete} id={this.props.product._id}>sell or dispose</button>
-                        <button onClick={this.handleRerenderTest} >increase State Counter {window.CS.getUIState().counter}</button>
+                        <button disabled={!window.CS.getUIState().loggedIn} onClick={this.handleSwitchToEditMode}>edit</button>
+                        <button disabled={!window.CS.getUIState().loggedIn} onClick={this.handleDelete} id={this.props.product._id}>sell or dispose</button>
+                        <button disabled={!window.CS.getUIState().loggedIn} onClick={this.handleRerenderTest} >increase State Counter {window.CS.getUIState().counter}</button>
                     </td>
                 </tr>
             )
@@ -112,6 +112,7 @@ export default class SimpleProduct extends React.PureComponent<IProps, IState> {
     handleSave(event: any) {
         this.setState({ edit_mode: false });
     }
+
     handleDelete() {
         const action: IProductAction = {
             type: ActionType.delete_product,
@@ -119,6 +120,7 @@ export default class SimpleProduct extends React.PureComponent<IProps, IState> {
         }
         window.CS.clientAction(action)
     }
+
     handleRerenderTest(event: any) {
         const action: IAction = {
             type: ActionType.render_test,
