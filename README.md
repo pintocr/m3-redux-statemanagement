@@ -36,7 +36,7 @@ You will see, that you will need to change every important file and typescript w
 After you finished renaming everything add two new columns. One for the amount of Products and another for the total price of the product. 
 
 
-![example of the new columns](src/readmeDocs/spalten.png)
+![example of the new columns](src/readmeDocs/spalten.PNG)
 
 
 ## Iteration 2
@@ -52,7 +52,7 @@ to use a state lift up. You should be able to get all states in our appState fil
 You will also need to add new States to the appState file.
 
 
-![example of the new component](src/readmeDocs/summe.png)
+![example of the new component](src/readmeDocs/summe.PNG)
 
 
 ## Iteration 3
